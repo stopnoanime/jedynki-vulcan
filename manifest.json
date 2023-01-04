@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Jedynki Vulcan",
+  "version": "1.0",
+  "description": "Dowiedz się ile jedynak możesz dostać aby utrzymać daną średnią.",
+
+  "icons": {
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content.js"
+      ],
+      "matches": [
+        "https://uonetplus-uczen.vulcan.net.pl/*"
+      ]
+    }
+  ]
+}
