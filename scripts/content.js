@@ -24,18 +24,14 @@ waitForElm('#ext-element-171 [data-qtip]').then(_ => {
 
     function calculateOnes(gradeSum, weightSum, demandedAverage, oneWeight) {
         const initialAverage = gradeSum/weightSum 
-        if(
-            initialAverage < 1 || //Do not calculate for initial average less than 1
-            oneWeight <= 0 
-        ) return null 
+        if(initialAverage < demandedAverage) return `Twoja średnia ${initialAverage.toFixed(2)} jest mniejsza niż żądana ${demandedAverage}.`
 
-        if(demandedAverage <= 1) return "Możesz dostać tyle jedynek ile chcesz."
-
-        if(initialAverage < demandedAverage) return `Twoja średnia ${initialAverage.toFixed(2)} jest mniejsza niż żądana ${demandedAverage}`
+        if(demandedAverage == 1) return "Możesz dostać tyle jedynek ile chcesz."
 
         //Math stuff
-        const res = (demandedAverage*weightSum - gradeSum)/(oneWeight*(1 - demandedAverage))
-        return `Jeszcze ${Math.floor(res)} 1️⃣`;  
+        const res = Math.floor((demandedAverage*weightSum - gradeSum)/(oneWeight*(1 - demandedAverage)))
+        
+        return res == 0 ? `Nie możesz już dostać żadnych jedynek.` : `Jeszcze ${res} 1️⃣`;
     }
 
     const labels = []
