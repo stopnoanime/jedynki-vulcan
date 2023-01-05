@@ -39,9 +39,10 @@ waitForElm('#ext-element-171 [data-qtip]').then(_ => {
     }
 
     const labels = []
+    const deleteLabels = () => labels.forEach(label => label.remove());
+
     function calculateLabels(demandedAverage, oneWeight) {
-        //Remove previously added labels
-        labels.forEach(label => label.remove());
+        deleteLabels();
         
         //For every subject
         [...subjectTable.children].forEach(schoolSubject => {
@@ -113,8 +114,8 @@ waitForElm('#ext-element-171 [data-qtip]').then(_ => {
     oneWeightInput = document.getElementById('one-weight')
 
     const inputChange = () => {
-        console.log(demandedAverageInput.value, oneWeightInput.value, demandedAverageInput.valid, oneWeightInput.valid)
-        calculateLabels(demandedAverageInput.value, oneWeightInput.value)
+        if(!demandedAverageInput.validity.valid || !oneWeightInput.validity.valid) deleteLabels();
+        else calculateLabels(demandedAverageInput.value, oneWeightInput.value)
     }
 
     demandedAverageInput.oninput = inputChange
