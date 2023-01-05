@@ -89,19 +89,6 @@ function calculateLabels(demandedAverage, oneWeight) {
     })
 }
 
-
-//Reload labels every time tab or input is changed
-const observer = new MutationObserver(() => {
-    if (document.querySelector('#ocenyTabId:not(.x-hidden) #ext-element-171 [data-qtip]')) onChange()
-})
-
-const observerConfig = {
-    childList: true,
-    subtree: true
-}
-
-observer.observe(document.body, observerConfig)
-
 //Menu inputs
 let demandedAverageInput
 let oneWeightInput
@@ -142,4 +129,14 @@ waitForElm('#ext-element-171').then( subjectTable => {
     oneWeightInput.oninput = onChange
 })
 
+//Reload labels every time tab or input is changed
+const observer = new MutationObserver(() => {
+    if (document.querySelector('#ocenyTabId:not(.x-hidden) #ext-element-171 [data-qtip]')) onChange()
+})
 
+const observerConfig = {
+    childList: true,
+    subtree: true
+}
+
+observer.observe(document.body, observerConfig)
