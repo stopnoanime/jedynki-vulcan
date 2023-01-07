@@ -4,7 +4,7 @@ Rozszerzenie do Google Chrome pokazujące ile jedynek możesz jescze dostać aby
 Działa ono w dzienniczku Vulcan.
 
 # Intalacja ze sklepu
-Roszerzenie czeka na weryfikacje w sklepie Google Chrome.
+Rozszerzenie jest dostępne w [Chrome Web Store](https://chrome.google.com/webstore/detail/jedynki-vulcan/nnlpfialicihgdmolgaphgckaelialod).
 
 # Instalacja manualna
 - Pobierz te repozytorium
